@@ -8,7 +8,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class WeatherComponent {
 
   public myModel = '';
-  public mask = [/[1-9]/, /[1-9]/, ' - ', /[1-9]/, /\d/, /\d/];
+  public mask = [/\d/, /\d/, ' - ', /\d/, /\d/, /\d/];
 
   @ViewChild('weatherInput') weatherInput?: ElementRef;
   
