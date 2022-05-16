@@ -1,15 +1,12 @@
-<section name="contact" class="jumbotron text-center bg-light" id="contact">
+<section name="contact" class="jumbotron text-center mb-0" id="contact">
 <div class="container">
-    <div class="py-5 text-center">
-      <h2>Contact</h2>
+    <div class="mb-3 text-center">
+      <h1 class="jumbotron-heading">Contact</h1>
     </div>
-
-    <div class="row">
-      <div class="col-md-12 order-md-1">
-        
         <form class="needs-validation" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
-            <div class="row">
-                <div class="col-md-12 mb-3">
+            <div class="row justify-content-md-center">
+                <div class="col-md-6 mb-3">
+                  <hr class="mb-4">
                 <label for="firstName">Name</label>
                 <input type="text" #firstName class="form-control" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" placeholder="Andrzej" formControlName="name" matInput>
                 <div class="invalid-feedback" *ngIf="submitted && f['name'].errors">
@@ -18,8 +15,8 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-12 mb-3">
+            <div class="row justify-content-md-center">
+                <div class="col-md-6 mb-3">
                     <label for="email">Email </label>
                     <input type="email" class="form-control" placeholder="you@example.com" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email">
                     <div class="invalid-feedback" *ngIf="submitted && f['email'].errors">
@@ -28,20 +25,18 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-12 mb-3">
+            <div class="row justify-content-md-center">
+                <div class="col-md-6 mb-3">
                     <label for="details">Details </label>
                     <textarea class="form-control" aria-label="Text" formControlName="message" [ngClass]="{ 'is-invalid': submitted && f['message'].errors }"></textarea>
                     <div class="invalid-feedback" *ngIf="submitted && f['message'].errors">
                       Please enter description. (min. 10chars)
-                      </div>
+                    </div>
+
+                      <hr class="mb-4">
+                      <button class="btn btn-primary btn-lg btn-block" type="submit">Send</button>
                 </div>
             </div>
-
-          <hr class="mb-4">
-          <button class="btn btn-primary btn-lg btn-block" type="submit">Send</button>
         </form>
-      </div>
-    </div>
   </div>
 </section>
