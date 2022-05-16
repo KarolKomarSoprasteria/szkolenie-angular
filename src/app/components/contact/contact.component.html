@@ -6,12 +6,13 @@
 
     <div class="row">
       <div class="col-md-12 order-md-1">
-        <form class="needs-validation"  novalidate="">
+        
+        <form class="needs-validation" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
             <div class="row">
                 <div class="col-md-12 mb-3">
                 <label for="firstName">Name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-                <div class="invalid-feedback">
+                <input type="text" #firstName class="form-control" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" placeholder="Andrzej" formControlName="name" matInput>
+                <div class="invalid-feedback" *ngIf="submitted && f['name'].errors">
                     Valid name is required.
                 </div>
                 </div>
@@ -20,8 +21,8 @@
             <div class="row">
                 <div class="col-md-12 mb-3">
                     <label for="email">Email </label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                    <div class="invalid-feedback">
+                    <input type="email" class="form-control" placeholder="you@example.com" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email">
+                    <div class="invalid-feedback" *ngIf="submitted && f['email'].errors">
                     Please enter a valid email address.
                     </div>
                 </div>
@@ -30,7 +31,10 @@
             <div class="row">
                 <div class="col-md-12 mb-3">
                     <label for="details">Details </label>
-                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                    <textarea class="form-control" aria-label="Text" formControlName="message" [ngClass]="{ 'is-invalid': submitted && f['message'].errors }"></textarea>
+                    <div class="invalid-feedback" *ngIf="submitted && f['message'].errors">
+                      Please enter description. (min. 10chars)
+                      </div>
                 </div>
             </div>
 
