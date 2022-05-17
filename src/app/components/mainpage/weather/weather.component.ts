@@ -1,4 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
   selector: 'app-weather',
@@ -7,15 +10,21 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class WeatherComponent {
 
-  public myModel = '';
   public mask = [/\d/, /\d/, ' - ', /\d/, /\d/, /\d/];
 
   @ViewChild('weatherInput') weatherInput?: ElementRef;
   
+  postalCode = '';
+  
+  constructor(private router: Router) {}
 
-  checkWeather() {
-    if (this.weatherInput?.nativeElement.value=="") return;
+  searchForWeather(): void {
     console.log(this.weatherInput?.nativeElement.value);
+    const queryParams = {
+      postal_code: this.weatherInput?.nativeElement.value.replace(' - ', ''),
+    };
+    this.router.navigate(['weather-details'], { queryParams });
   }
+
 
 }
