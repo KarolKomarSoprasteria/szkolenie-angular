@@ -16,9 +16,9 @@ import { TextMaskModule } from  'angular2-text-mask';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    TextMaskModule,
+    TextMaskModule
   ],
-  declarations: [HomepageComponent, AboutComponent, ContactComponent, MarksComponent, WeatherComponent, MarkItemComponent],
+  declarations: [HomepageComponent, AboutComponent, ContactComponent, MarksComponent, WeatherComponent, MarkItemComponent ],
   exports: [HomepageComponent, AboutComponent, ContactComponent, MarksComponent, WeatherComponent, MarkItemComponent],
 })
 export class MainpageModule { }

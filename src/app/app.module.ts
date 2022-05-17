@@ -11,13 +11,18 @@ import { MainpageModule } from './components/mainpage/mainpage.module';
 import { WeatherpageModule } from './components/weatherpage/weatherpage.module';
 import { HomepageComponent } from './components/mainpage/homepage/homepage.component';
 import { WeatherdetailsComponent } from './components/weatherpage/weatherdetails/weatherdetails.component';
+import { MatIconModule } from '@angular/material/icon';
+import { TemperatureConverterPipe } from './components/weatherpage/weatherdetails/pipes/temperature-converter.pipe';
+import { WeatherIconComponent } from './components/weatherpage/weather-icon/weather-icon.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopbarComponent,
     FooterComponent,
+    TemperatureConverterPipe,
     WeatherdetailsComponent,
+    WeatherIconComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +30,7 @@ import { WeatherdetailsComponent } from './components/weatherpage/weatherdetails
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    MatIconModule,
     RouterModule.forRoot([
       {
         path: '',
